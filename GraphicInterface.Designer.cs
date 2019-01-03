@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GraphicInterface));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -69,11 +70,6 @@
             this.pnlRecordedData = new System.Windows.Forms.Panel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Speed = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Altitude = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Latitude = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Longitude = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnDisconnect = new System.Windows.Forms.Button();
             this.btnVerify = new System.Windows.Forms.Button();
             this.btnConnect = new System.Windows.Forms.Button();
@@ -88,6 +84,17 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pbRec = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Speed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Altitude = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Latitude = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Longitude = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnOpen = new System.Windows.Forms.Button();
+            this.trackBar = new System.Windows.Forms.TrackBar();
+            this.btnLoad = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -106,6 +113,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRec)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -298,6 +307,7 @@
             // 
             // btnRec
             // 
+            this.btnRec.Enabled = false;
             this.btnRec.Location = new System.Drawing.Point(47, 83);
             this.btnRec.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRec.Name = "btnRec";
@@ -309,6 +319,7 @@
             // 
             // btnStop
             // 
+            this.btnStop.Enabled = false;
             this.btnStop.Location = new System.Drawing.Point(239, 83);
             this.btnStop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStop.Name = "btnStop";
@@ -467,6 +478,7 @@
             this.cmbPorts.Name = "cmbPorts";
             this.cmbPorts.Size = new System.Drawing.Size(223, 26);
             this.cmbPorts.TabIndex = 7;
+            this.cmbPorts.SelectedIndexChanged += new System.EventHandler(this.cmbPorts_SelectedIndexChanged);
             // 
             // cmbSpeed
             // 
@@ -480,6 +492,7 @@
             this.cmbSpeed.Name = "cmbSpeed";
             this.cmbSpeed.Size = new System.Drawing.Size(223, 26);
             this.cmbSpeed.TabIndex = 7;
+            this.cmbSpeed.SelectedIndexChanged += new System.EventHandler(this.cmbSpeed_SelectedIndexChanged);
             // 
             // panel2
             // 
@@ -492,6 +505,7 @@
             // pnlFlightData
             // 
             this.pnlFlightData.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlFlightData.Controls.Add(this.button1);
             this.pnlFlightData.Controls.Add(this.groupBox5);
             this.pnlFlightData.Controls.Add(this.groupBox2);
             this.pnlFlightData.Controls.Add(this.groupBox1);
@@ -550,6 +564,11 @@
             // 
             // pnlRecordedData
             // 
+            this.pnlRecordedData.Controls.Add(this.trackBar);
+            this.pnlRecordedData.Controls.Add(this.btnOpen);
+            this.pnlRecordedData.Controls.Add(this.btnLoad);
+            this.pnlRecordedData.Controls.Add(this.btnSave);
+            this.pnlRecordedData.Controls.Add(this.pictureBox7);
             this.pnlRecordedData.Controls.Add(this.dataGridView);
             this.pnlRecordedData.Location = new System.Drawing.Point(0, 104);
             this.pnlRecordedData.Name = "pnlRecordedData";
@@ -572,6 +591,8 @@
             // 
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AllowUserToDeleteRows = false;
+            this.dataGridView.AllowUserToResizeColumns = false;
+            this.dataGridView.AllowUserToResizeRows = false;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Time,
@@ -586,39 +607,6 @@
             this.dataGridView.Size = new System.Drawing.Size(645, 877);
             this.dataGridView.TabIndex = 0;
             // 
-            // Time
-            // 
-            this.Time.HeaderText = "Time";
-            this.Time.Name = "Time";
-            this.Time.ReadOnly = true;
-            this.Time.Width = 70;
-            // 
-            // Speed
-            // 
-            this.Speed.HeaderText = "Speed";
-            this.Speed.Name = "Speed";
-            this.Speed.ReadOnly = true;
-            this.Speed.Width = 80;
-            // 
-            // Altitude
-            // 
-            this.Altitude.HeaderText = "Altitude";
-            this.Altitude.Name = "Altitude";
-            this.Altitude.ReadOnly = true;
-            this.Altitude.Width = 80;
-            // 
-            // Latitude
-            // 
-            this.Latitude.HeaderText = "Latitude";
-            this.Latitude.Name = "Latitude";
-            this.Latitude.ReadOnly = true;
-            // 
-            // Longitude
-            // 
-            this.Longitude.HeaderText = "Longitude";
-            this.Longitude.Name = "Longitude";
-            this.Longitude.ReadOnly = true;
-            // 
             // btnDisconnect
             // 
             this.btnDisconnect.BackgroundImage = global::Interfaz.Properties.Resources.broken_link_64;
@@ -629,6 +617,7 @@
             this.btnDisconnect.Size = new System.Drawing.Size(65, 63);
             this.btnDisconnect.TabIndex = 13;
             this.btnDisconnect.UseVisualStyleBackColor = true;
+            this.btnDisconnect.Click += new System.EventHandler(this.btnDisconnect_Click);
             // 
             // btnVerify
             // 
@@ -640,6 +629,7 @@
             this.btnVerify.Size = new System.Drawing.Size(65, 63);
             this.btnVerify.TabIndex = 13;
             this.btnVerify.UseVisualStyleBackColor = true;
+            this.btnVerify.Click += new System.EventHandler(this.btnVerify_Click);
             // 
             // btnConnect
             // 
@@ -651,6 +641,7 @@
             this.btnConnect.Size = new System.Drawing.Size(65, 63);
             this.btnConnect.TabIndex = 13;
             this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
             // btnData
             // 
@@ -677,10 +668,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Interfaz.Properties.Resources.AEROLOGOPEQUEÑO;
-            this.pictureBox2.Location = new System.Drawing.Point(863, 4);
+            this.pictureBox2.Location = new System.Drawing.Point(863, -1);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(319, 115);
+            this.pictureBox2.Size = new System.Drawing.Size(319, 118);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
@@ -764,6 +755,98 @@
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
+            // Time
+            // 
+            this.Time.HeaderText = "Time [s]";
+            this.Time.Name = "Time";
+            this.Time.ReadOnly = true;
+            this.Time.Width = 70;
+            // 
+            // Speed
+            // 
+            this.Speed.HeaderText = "Speed [ft/s]";
+            this.Speed.Name = "Speed";
+            this.Speed.ReadOnly = true;
+            this.Speed.Width = 90;
+            // 
+            // Altitude
+            // 
+            this.Altitude.HeaderText = "Altitude [ft]";
+            this.Altitude.Name = "Altitude";
+            this.Altitude.ReadOnly = true;
+            this.Altitude.Width = 80;
+            // 
+            // Latitude
+            // 
+            this.Latitude.HeaderText = "Latitude [°]";
+            this.Latitude.Name = "Latitude";
+            this.Latitude.ReadOnly = true;
+            // 
+            // Longitude
+            // 
+            this.Longitude.HeaderText = "Longitude [°]";
+            this.Longitude.Name = "Longitude";
+            this.Longitude.ReadOnly = true;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::Interfaz.Properties.Resources.Maps;
+            this.pictureBox7.Location = new System.Drawing.Point(1062, 16);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(850, 480);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 6;
+            this.pictureBox7.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(762, 145);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(177, 60);
+            this.btnSave.TabIndex = 7;
+            this.btnSave.Text = "Save Data";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnOpen
+            // 
+            this.btnOpen.Location = new System.Drawing.Point(762, 250);
+            this.btnOpen.Name = "btnOpen";
+            this.btnOpen.Size = new System.Drawing.Size(177, 60);
+            this.btnOpen.TabIndex = 7;
+            this.btnOpen.Text = "Open Data";
+            this.btnOpen.UseVisualStyleBackColor = true;
+            // 
+            // trackBar
+            // 
+            this.trackBar.BackColor = System.Drawing.SystemColors.Control;
+            this.trackBar.Location = new System.Drawing.Point(1062, 520);
+            this.trackBar.Maximum = 360;
+            this.trackBar.Name = "trackBar";
+            this.trackBar.Size = new System.Drawing.Size(850, 56);
+            this.trackBar.TabIndex = 9;
+            this.trackBar.Scroll += new System.EventHandler(this.trackBar_Scroll);
+            // 
+            // btnLoad
+            // 
+            this.btnLoad.Location = new System.Drawing.Point(762, 39);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(177, 60);
+            this.btnLoad.TabIndex = 7;
+            this.btnLoad.Text = "Load Preview";
+            this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            // 
             // GraphicInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -772,15 +855,16 @@
             this.ClientSize = new System.Drawing.Size(1924, 1033);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.pnlFlightData);
             this.Controls.Add(this.pnlRecordedData);
+            this.Controls.Add(this.pnlFlightData);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "GraphicInterface";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "UNAM AeroDesign Telemetry System";
+            this.Text = "UNAM AeroDesign Telemetry System 2019";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.GraphicInterface_Load);
             this.groupBox1.ResumeLayout(false);
@@ -795,6 +879,7 @@
             this.panel1.PerformLayout();
             this.pnlFlightData.ResumeLayout(false);
             this.pnlRecordedData.ResumeLayout(false);
+            this.pnlRecordedData.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -806,6 +891,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRec)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -872,6 +959,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Altitude;
         private System.Windows.Forms.DataGridViewTextBoxColumn Latitude;
         private System.Windows.Forms.DataGridViewTextBoxColumn Longitude;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnOpen;
+        private System.Windows.Forms.TrackBar trackBar;
+        private System.Windows.Forms.Button btnLoad;
     }
 }
 
