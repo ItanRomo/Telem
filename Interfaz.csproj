@@ -46,16 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="GraphicInterface.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="GraphicInterface.Designer.cs">
+      <DependentUpon>GraphicInterface.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="GraphicInterface.resx">
+      <DependentUpon>GraphicInterface.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -85,6 +85,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Multimedia\AEROLOGOPEQUEÑO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Multimedia\broken-link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Multimedia\broken-link_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Multimedia\link_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Multimedia\control.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Multimedia\remote-control.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Multimedia\remote-control_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Multimedia\unlink.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Multimedia\plane_side_view.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Multimedia\plane-front-view.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Multimedia\rec.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

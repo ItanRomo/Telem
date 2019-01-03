@@ -8,3 +8,13 @@ D:\Aero Design\Avanzada 2019\Interfaz Gráfica\Interfaz\obj\Debug\Interfaz.cspro
 D:\Aero Design\Avanzada 2019\Interfaz Gráfica\Interfaz\obj\Debug\Interfaz.csproj.CoreCompileInputs.cache
 D:\Aero Design\Avanzada 2019\Interfaz Gráfica\Interfaz\obj\Debug\Interfaz.exe
 D:\Aero Design\Avanzada 2019\Interfaz Gráfica\Interfaz\obj\Debug\Interfaz.pdb
+C:\Users\itan_\Desktop\Telem\bin\Debug\Interfaz.exe.config
+C:\Users\itan_\Desktop\Telem\bin\Debug\Interfaz.exe
+C:\Users\itan_\Desktop\Telem\bin\Debug\Interfaz.pdb
+C:\Users\itan_\Desktop\Telem\obj\Debug\Interfaz.csprojAssemblyReference.cache
+C:\Users\itan_\Desktop\Telem\obj\Debug\Interfaz.Properties.Resources.resources
+C:\Users\itan_\Desktop\Telem\obj\Debug\Interfaz.csproj.GenerateResource.cache
+C:\Users\itan_\Desktop\Telem\obj\Debug\Interfaz.csproj.CoreCompileInputs.cache
+C:\Users\itan_\Desktop\Telem\obj\Debug\Interfaz.exe
+C:\Users\itan_\Desktop\Telem\obj\Debug\Interfaz.pdb
+C:\Users\itan_\Desktop\Telem\obj\Debug\Interfaz.GraphicInterface.resources
